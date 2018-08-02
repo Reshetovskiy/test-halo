@@ -1,0 +1,21 @@
+{
+  "name": "Gulp start project",
+  "description": "Gulp compiling",
+  "main": "index.js",
+  "authors": [
+    "Yuriy Klimovych <web.west5@gmail.com>"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "reset-css": "^2.2.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ]
+}
