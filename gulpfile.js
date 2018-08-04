@@ -24,6 +24,8 @@ var gulp        = require('gulp'),
     imgRetina = require('gulp-img-retina'),
     htmlmin = require('gulp-htmlmin'),
     csso = require('gulp-csso'),
+    gulpDeployFtp = require('gulp-deploy-ftp'),
+    zip = require('gulp-zip'),
     gulpif = require('gulp-if');
 
 const arg = (argList => {
@@ -45,7 +47,8 @@ const arg = (argList => {
 })(process.argv);
 
 var buildpath = 'build',
-    testpath = 'test';
+    testpath = 'test',
+    appPath = 'app';
 	
 var path = {
     build: {
@@ -123,6 +126,7 @@ gulp.task('openbrowser', function() {
 gulp.task('html:build', function () {
     gulp.src(path.src.html) 
         .pipe(rigger())
+        .pipe(gulpif(ardv.combined, useref()))
         .pipe(gulpif(ardv.retina, imgRetina(retinaOpts)))
         .pipe(gulp.dest(path.build.html))
         .pipe(connect.reload());
@@ -141,7 +145,7 @@ gulp.task('style:build', function () {
         .pipe(plumber())
         .pipe(sass())
         .pipe(prefixer())
-        // .pipe(csso())
+        .pipe(csso())
         .pipe(cssmin())
         .pipe(gulp.dest(path.build.css)) 
         .pipe(connect.reload());
@@ -288,4 +292,44 @@ gulp.task('build:watch', [
 ]);
 
 gulp.task('server', ['build', 'watch', 'webserver', 'openbrowser']);
+
 gulp.task('default', ['build']);
+
+gulp.task('deploy:test', function () {
+    gulp.src(testpath)
+        .pipe(gulpDeployFtp({
+            remotePath: '',
+            host: 'localhost',
+            port: 21,
+            user: '',
+            pass: ''
+        }))
+        .pipe(gulp.dest('dest'));
+});
+
+gulp.task('deploy:build', function () {
+    gulp.src(buildpath)
+        .pipe(gulpDeployFtp({
+            remotePath: '',
+            host: 'localhost',
+            port: 21,
+            user: '',
+            pass: ''
+        }))
+        .pipe(gulp.dest('dest'));
+});
+
+gulp.task('zip', function () {
+    var mfilter = filter([
+            '!node_modules', 
+            '!bower_components', 
+            '!.vscode', 
+            '!.idea', 
+            '!app', 
+            '!.git'
+        ]);
+    gulp.src('*')
+        .pipe(mfilter)
+		.pipe(zip('app.zip'))
+		.pipe(gulp.dest(appPath))
+});
