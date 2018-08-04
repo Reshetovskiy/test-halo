@@ -13,14 +13,39 @@ var gulp        = require('gulp'),
 	opn         = require('opn'),
 	rimraf      = require('rimraf'),
     bower       = require('gulp-bower'),
-    svgSprite = require('gulp-svg-sprite'),
-	svgmin = require('gulp-svgmin'),
-	cheerio = require('gulp-cheerio'),
-	replace = require('gulp-replace'),
-	plumber = require('gulp-plumber'),
-	filter      = require('gulp-filter');
+    svgSprite   = require('gulp-svg-sprite'),
+	svgmin      = require('gulp-svgmin'),
+	cheerio     = require('gulp-cheerio'),
+	replace     = require('gulp-replace'),
+	plumber     = require('gulp-plumber'),
+    filter      = require('gulp-filter'),
+    inlinesource = require('gulp-inline-source'),
+    log = require('fancy-log'),
+    imgRetina = require('gulp-img-retina'),
+    htmlmin = require('gulp-htmlmin'),
+    csso = require('gulp-csso'),
+    gulpif = require('gulp-if');
 
-var buildpath = 'build';
+const arg = (argList => {
+    let arg = {}, a, opt, thisOpt, curOpt;
+    for (a = 0; a < argList.length; a++) {
+        thisOpt = argList[a].trim();
+        opt = thisOpt.replace(/^\-+/, '');
+    
+        if (opt === thisOpt) {
+            if (curOpt) arg[curOpt] = opt;
+            curOpt = null;
+        }
+        else {
+            curOpt = opt;
+            arg[curOpt] = true;
+        }
+    }
+    return arg;
+})(process.argv);
+
+var buildpath = 'build',
+    testpath = 'test';
 	
 var path = {
     build: {
@@ -31,6 +56,11 @@ var path = {
         fonts:  buildpath + '/fonts/',
         bower:  buildpath + '/vendor/'
     },
+    test: {
+        html:   testpath + '/',
+        img:    testpath + '/img/',
+        fonts:  testpath + '/fonts/'
+    },
     src: {
         html:                'src/pages/*.html',
         js:                  'src/js/script.js',
@@ -39,7 +69,7 @@ var path = {
         imgicons:            'src/img/icons/*.png',
         svgicons:            'src/img/icons/*.svg',
         fonts:               'src/fonts/**/*.*',
-        bower:               'src/bower_components/**/*.*',
+        bower:               'bower_components/**/*.*',
         path_sasspartials:   'src/sass/partials/',
         path_sasstemplates:  'src/sass/templates/',
         path_img:            'src/img/work/'
@@ -56,17 +86,27 @@ var path = {
         ],
         fonts:  'src/fonts/**/*.*'
     },
-    clean: './build'
+    clean: './build',
+    cleanTest: './test'
 };
 
 var server = {
     host: 'localhost',
-    port: '9000'
+    port: '2288'
 };
 
-gulp.task('clean', function (cb) {
+gulp.task('clean:build', function (cb) {
     rimraf(path.clean, cb);
 });
+
+gulp.task('clean:test', function (cb) {
+    rimraf(path.cleanTest, cb);
+});
+
+gulp.task('clean', [
+    'clean:test',
+    'clean:build'
+]);
 
 gulp.task('webserver', function() {
     connect.server({
@@ -83,6 +123,7 @@ gulp.task('openbrowser', function() {
 gulp.task('html:build', function () {
     gulp.src(path.src.html) 
         .pipe(rigger())
+        .pipe(gulpif(ardv.retina, imgRetina(retinaOpts)))
         .pipe(gulp.dest(path.build.html))
         .pipe(connect.reload());
 });
@@ -100,6 +141,7 @@ gulp.task('style:build', function () {
         .pipe(plumber())
         .pipe(sass())
         .pipe(prefixer())
+        // .pipe(csso())
         .pipe(cssmin())
         .pipe(gulp.dest(path.build.css)) 
         .pipe(connect.reload());
@@ -198,7 +240,7 @@ gulp.task('bower:build', function() {
 		.pipe(cssfilter)
 		.pipe(cssmin())
 		.pipe(cssfilter.restore)
-		//.pipe(mfilter)
+		.pipe(mfilter)
         .pipe(gulp.dest(path.build.bower))
 });
 
@@ -212,21 +254,36 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', [
-	'image:build',
+    'image:build',
     'html:build',
     'js:build',
     'style:build',
     'fonts:build',
-	'bower:build'
+    'bower:build'
 ]);
 
+gulp.task('build:test', function () {
+    gulp.src(path.build.html + '*.html')
+        .pipe(inlinesource())
+        .pipe(gulpif(ardv.htmlmin, htmlmin({collapseWhitespace: true})))
+        .pipe(gulp.dest(path.test.html));
+    gulp.src(path.build.img + '*')
+        .pipe(gulp.dest(path.test.img));
+    gulp.src(path.build.fonts + '*')
+        .pipe(gulp.dest(path.test.fonts));
+});
+
+gulp.task('test', ['build'], function () {
+    gulp.start('build:test');
+});
+
 gulp.task('build:watch', [
-	'image:build',
+    'image:build',
     'html:build',
     'js:build',
     'style:build',
     'fonts:build',
-	'bower:build',
+    'bower:build',
 	'watch'
 ]);
 

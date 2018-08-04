@@ -28,6 +28,12 @@
     "gulp-plumber": "*",
     "imagemin-pngquant": "*",
     "opn": "*",
-    "rimraf": "*"
+    "rimraf": "*",
+    "gulp-inline-source": "*",
+    "gulp-if": "*",
+    "gulp-img-retina": "*",
+    "gulp-csso": "*",
+    "gulp-htmlmin": "*",
+    "gulp-useref": "*"
   }
 }
