@@ -1,22 +1,8 @@
-<!-- PageSpeed Insights  -->
-<script>
-    var loadDeferredStyles = function() {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-    };
-    var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-    else window.addEventListener('load', loadDeferredStyles);
-</script>
 <!-- Vendor scripts plugins -->
 <!-- build:js js/plugins.js -->
-<script src="./vendor/jquery/dist/jquery.min.js" inline></script>
+<script src="vendor/jquery/dist/jquery.js"></script>
 <!-- endbuild -->
 <!-- Scripts application -->
-<script src="./js/script.js" inline></script>
+<script src="js/script.js" inline></script>
 </body>
 </html>

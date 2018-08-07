@@ -5,3 +5,4 @@ build/
 .idea/
 test/
 app/
+.env.json

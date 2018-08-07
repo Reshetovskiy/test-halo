@@ -1,4 +1,4 @@
 (function ($) {
     'use strict'
-    //=require partials/app.js
 })(jQuery)
+//=require partials/google_page_speed.js

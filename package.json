@@ -34,8 +34,11 @@
     "gulp-img-retina": "*",
     "gulp-csso": "*",
     "gulp-htmlmin": "*",
-    "gulp-deploy-ftp": "*",
     "gulp-zip": "*",
+    "run-sequence": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-util": "*",
+    "vinyl-ftp": "*",
     "gulp-useref": "*"
   }
 }
