@@ -296,10 +296,10 @@ gulp.task('build:test', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.test.html));
 
-    gulp.src(path.build.img + '*')
+    gulp.src(path.build.img + '**/*.*')
         .pipe(gulp.dest(path.test.img));
 
-    gulp.src(path.build.fonts + '*')
+    gulp.src(path.build.fonts + '**/*.*')
         .pipe(gulp.dest(path.test.fonts));
 });
 

@@ -39,6 +39,8 @@
     "gulp-sourcemaps": "*",
     "gulp-util": "*",
     "vinyl-ftp": "*",
+    "gulp-env": "*",
+    "fancy-log": "*",
     "gulp-useref": "*"
   }
 }
