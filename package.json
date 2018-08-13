@@ -41,6 +41,7 @@
     "vinyl-ftp": "*",
     "gulp-env": "*",
     "fancy-log": "*",
+    "gulp-file-include": "*",
     "gulp-useref": "*"
   }
 }

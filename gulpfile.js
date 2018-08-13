@@ -2,6 +2,7 @@
 
 var gulp          = require('gulp'),
 	rigger        = require('gulp-include'),
+	fileInclude        = require('gulp-file-include'),
 	prefixer      = require('gulp-autoprefixer'),
 	sass          = require('gulp-sass'),
 	cssmin        = require('gulp-cssmin'),
@@ -138,6 +139,7 @@ gulp.task('openbrowser', function() {
 gulp.task('html:build', function () {
     return gulp.src(path.src.html) 
         .pipe(rigger())
+        .pipe(fileInclude())
         .pipe(gulpif(arg.retina, imgRetina(retinaOpts)))
         .pipe(gulp.dest(path.build.html))
         .pipe(connect.reload());
@@ -177,11 +179,11 @@ gulp.task('sprite', function () {
 gulp.task('svg:sprite:build', function () {
     return gulp.src(path.src.svgicons)
         .pipe(plumber())
-		.pipe(svgmin({
-			js2svg: {
-				pretty: true
-			}
-		}))
+		// .pipe(svgmin({
+		// 	js2svg: {
+		// 		pretty: true
+		// 	}
+		// }))
 		.pipe(cheerio({
 			run: function ($) {
 				$('[fill]').removeAttr('fill');
@@ -210,12 +212,12 @@ gulp.task('svg:sprite:build', function () {
 gulp.task('image:build', function () {
     gulp.src(path.src.img) 
         .pipe(plumber())
-        .pipe(imagemin({
+        .pipe(gulpif('!*.svg', imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             interlaced: true
-        }))
+        })))
         .pipe(gulp.dest(path.build.img))
         .pipe(connect.reload());
 
@@ -261,7 +263,7 @@ gulp.task('watch', function() {
 	gulp.watch(path.watch.html,  ['html:build']);
 	gulp.watch(path.watch.js,    ['js:build']);
 	gulp.watch(path.watch.style, ['style:build']);
-	gulp.watch(path.watch.img,   ['image:build']);
+	gulp.watch(path.watch.img,   ['image:build', 'sprite', 'svg:sprite:build']);
 	gulp.watch(path.watch.fonts, ['fonts:build']);
 	gulp.watch(path.watch.bower, ['bower:build', 'style:build']);
 });
