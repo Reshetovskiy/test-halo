@@ -4,9 +4,9 @@
 ## Установка
 
 ```
-npm i gulp gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf -g
+npm i gulp gulp-file-include gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf -g
 
-npm link gulp gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf
+npm link gulp gulp-file-include gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf
 ```
 
 # или
@@ -48,6 +48,13 @@ src/sass - стили, скомпелируется в `"build/css"`
 src/js - скрипты, скомпелируется в `"build/js"`
 pages - html файлы, скомпелируются файлы из корня `src` в корень `build`
 ```
+
+## Использование спрайта SVG
+
+```
+@@include('mixins/svg-icon.html', {"name": "corrected", "class": "color-red"})
+```
+Где name - имя файла иконки, а class - дополнительные классы
 
 ## Деплой на FTP
 
