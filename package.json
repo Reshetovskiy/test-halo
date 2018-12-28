@@ -43,6 +43,7 @@
     "fancy-log": "*",
     "gulp-file-include": "*",
     "gulp-useref": "*",
-    "gulp-rename": "*"
+    "gulp-rename": "*",
+    "gulp-uglify-es": "*"
   }
 }
