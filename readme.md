@@ -85,7 +85,7 @@ $ gulp test --noinline --nohtmlmin
 
 Копируем ```./webpack-example/webpack.mix.itsclient.js``` в директорию родителя
 ```
-$ cp ./webpack-laravel/webpack.mix.itsclient.js ../
+$ cp ./webpack-example/webpack.mix.itsclient.js ../
 $ cd ../
 ```
 Добавляем в Laravel поддержку этого файла, в файл webpack.mix.js вставляем строки 
