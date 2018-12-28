@@ -42,6 +42,7 @@
     "gulp-env": "*",
     "fancy-log": "*",
     "gulp-file-include": "*",
-    "gulp-useref": "*"
+    "gulp-useref": "*",
+    "gulp-rename": "*"
   }
 }
