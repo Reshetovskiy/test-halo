@@ -4,9 +4,9 @@
 ## Установка
 
 ```
-npm i gulp gulp-file-include gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf -g
+npm i gulp gulp-rename gulp-file-include gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf -g
 
-npm link gulp gulp-file-include gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf
+npm link gulp gulp-rename gulp-file-include gulp-env fancy-log gulp-util vinyl-ftp gulp-sourcemaps run-sequence gulp-zip gulp-useref gulp-htmlmin gulp-csso gulp-img-retina gulp-if gulp-inline-source gulp-autoprefixer gulp-bower gulp-connect gulp-cssmin gulp-filter gulp-imagemin gulp-sass gulp-livereload gulp-include gulp-uglify gulp.spritesmith gulp-svg-sprite gulp-svgmin gulp-cheerio gulp-replace gulp-plumber imagemin-pngquant opn rimraf
 ```
 
 # или
@@ -108,10 +108,14 @@ if (process.env.section) {
 ```
 <link rel="stylesheet" href="{{ asset('its-client/css/plugins.css') }}">
 <link rel="stylesheet" href="{{ asset('its-client/css/style.css') }}">
+или
+<link rel="stylesheet" href="{{ asset('its-client/css/style.min.css') }}">
 ```
 
 Скрыпты:
 ```
 <script src="{{ asset('its-client/js/plugins.js') }}"></script>
 <script src="{{ asset('its-client/js/script.js') }}"></script>
+или
+<script src="{{ asset('its-client/js/script.min.js') }}"></script>
 ```

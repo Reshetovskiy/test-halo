@@ -2,6 +2,7 @@
 
 var gulp          = require('gulp'),
 	rigger        = require('gulp-include'),
+	rename        = require('gulp-rename'),
 	fileInclude   = require('gulp-file-include'),
 	prefixer      = require('gulp-autoprefixer'),
 	sass          = require('gulp-sass'),
@@ -311,6 +312,17 @@ gulp.task('build:test', function () {
         .pipe(gulp.dest(path.test.css));
         
     gulp.src(path.build.js + '**/*.*')
+        .pipe(gulp.dest(path.test.js));
+
+    gulp.src(path.build.css + '**/*.*')
+        .pipe(gulpif('*.css', csso()))
+        .pipe(gulpif('*.css', cssmin()))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(path.test.css));
+        
+    gulp.src(path.build.js + '**/*.*')
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(path.test.js));
 });
 
