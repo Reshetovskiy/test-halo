@@ -5,4 +5,3 @@
         svg4everybody({})
     })
 })(jQuery)
-//=require partials/google_page_speed.js

@@ -2,7 +2,7 @@
 
 var gulp          = require('gulp'),
 	rigger        = require('gulp-include'),
-	fileInclude        = require('gulp-file-include'),
+	fileInclude   = require('gulp-file-include'),
 	prefixer      = require('gulp-autoprefixer'),
 	sass          = require('gulp-sass'),
 	cssmin        = require('gulp-cssmin'),
@@ -75,7 +75,9 @@ var path = {
     test: {
         html:   testpath + '/',
         img:    testpath + '/img/',
-        fonts:  testpath + '/fonts/'
+        fonts:  testpath + '/fonts/',
+        css:  testpath + '/css/',
+        js:  testpath + '/js/'
     },
     src: {
         html:                'src/pages/*.html',
@@ -282,20 +284,21 @@ gulp.task('build:test', function () {
         .pipe(gulpif(arg.nocache, replace('<meta http-equiv="Cache-Control" content="no-cache">', '')))
         .pipe(gulpif(arg.nodefer, replace('<noscript id="deferred-styles">', '')))
         .pipe(gulpif(arg.nodefer, replace('</noscript>', '')))
+        .pipe(gulpif(arg.noinline, replace(' inline', '')))
         .pipe(useref())
-        .pipe(sourcemaps.init())
-        .pipe(inlinesource())
+        .pipe(gulpif(arg.sourcemaps, sourcemaps.init()))
+        .pipe(gulpif(!arg.noinline, inlinesource()))
         .pipe(gulpif('*.css', csso()))
         .pipe(gulpif('*.css', cssmin()))
         .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.html', htmlmin({
+        .pipe(gulpif(!arg.nohtmlmin, gulpif('*.html', htmlmin({
             collapseWhitespace: true,
             conservativeCollapse: true,
             removeComments: true,
             minifyCSS: true,
             minifyJS: true
-        })))
-        .pipe(sourcemaps.write())
+        }))))
+        .pipe(gulpif(arg.sourcemaps, sourcemaps.write()))
         .pipe(gulp.dest(path.test.html));
 
     gulp.src(path.build.img + '**/*.*')
@@ -303,10 +306,16 @@ gulp.task('build:test', function () {
 
     gulp.src(path.build.fonts + '**/*.*')
         .pipe(gulp.dest(path.test.fonts));
+
+    gulp.src(path.build.css + '**/*.*')
+        .pipe(gulp.dest(path.test.css));
+        
+    gulp.src(path.build.js + '**/*.*')
+        .pipe(gulp.dest(path.test.js));
 });
 
-gulp.task('test', ['clean'], function () {
-    runSequence('clean', 'build', 'build:test');
+gulp.task('test', function () {
+    runSequence('build:test');
 });
 
 gulp.task('build:watch', [
