@@ -39,10 +39,15 @@
         letter-spacing: 1.32px;
         color: #ffffff;
         font-size: 11px;
+        transition: all .4s ease;
+        &:hover {
+            color: rgb(192, 187, 187);
+        }
     }
 }
 
 .header-social {
+
     .header-list {
         display: flex;
         &__item {
@@ -54,6 +59,10 @@
         fill: #ffffff;
         width: 30px;
         height: 30px;
+        transition: all .4s ease;
+        &:hover {
+            fill: rgb(192, 187, 187);
+        }
     }
 }
 
@@ -73,11 +82,16 @@
 }
 
  .header-list--white {
+
     .header-list {
         color: #000;
         &__link {
             color: #000;
             font-size: 14px;
+            transition: all .4s ease;
+            &:hover {
+                color: rgb(192, 187, 187);
+            }
         }
     }
  }
@@ -94,7 +108,7 @@
          }
      }
      &__button {
-         margin-left: 12px;
+        margin-left: 12px;
         background: #000;
         border: none;
         padding: 17px;
@@ -110,7 +124,7 @@
 .header-information {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
-    padding: 137px 63px 48px 63px;
+    padding: 137px 63px 0px 63px;
     &__title {
         font-size: 130px;
         text-transform: uppercase;
@@ -128,6 +142,13 @@
         font-size: 20px;
         letter-spacing: 8px;
         margin-bottom: 69px;
+    }
+}
+.play {
+    padding: 0  0 48px 41px;
+    .icon-svg {
+        width: 28px;
+        fill: #fff;
     }
 }
 

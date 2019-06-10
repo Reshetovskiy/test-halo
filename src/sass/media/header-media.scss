@@ -9,6 +9,12 @@
         width: 150px;
     }
 
+    .header-social {
+        &__item {
+            padding: 0 7px;
+        }
+    }
+
     .header-list--white {
 
         .header-list {
@@ -28,7 +34,7 @@
     }
 
     .header-information {
-        padding: 60px 40px 25px 40px;
+        padding: 60px 40px 0px 40px;
         &__title {
             font-size: 100px;
             margin-bottom: 0;
@@ -42,15 +48,17 @@
             margin-bottom: 40px;
         }
     }
+
+    .play {
+        padding: 0  0 40px 25px;
+        .icon-svg {
+            width: 28px;
+            fill: #fff;
+        }
+    }    
     
     .header-top-information {
         min-width: 40%;
-    }
-
-    .header-social {
-        &__item {
-            padding: 0 7px;
-        }
     }
 
     .hallo-img {
@@ -110,7 +118,7 @@
     }
 
     .header-information {
-        padding: 30px 20px 15px 20px;
+        padding: 30px 20px 0px 20px;
         &__title {
             font-size: 80px;
             margin-bottom: 0;
@@ -124,12 +132,23 @@
             margin-bottom: 40px;
         }
     }
+
+    .play {
+        padding: 0  0 15px 15px;
+
+        .icon-svg {
+            width: 28px;
+            fill: #fff;
+        }
+    } 
+
     .hallo-img {
         width: 150px;
     }
 }
 
 @media #{$sr-max-767} {
+
     .header-top {
         display: block;
         position: relative;
@@ -204,21 +223,34 @@
     }
 
     .header-information {
-        padding: 30px 10px 10px 10px;
+        padding: 30px 10px 0px 10px;
         &__title {
             font-size: 40px;
             margin-bottom: 0;
-            letter-spacing: 23px;
+            letter-spacing: 18px;
+            font-weight: 300;
         }
         &__subtitle {
             font-weight: 400;
             font-size: 18px;
             letter-spacing: 17px;
+            margin-bottom: 10px;
         }
         &__text {
             margin-bottom: 40px;
+            line-height: 24px;
         }
     }
+
+    .play {
+        padding: 0  0 10px 5px;
+
+        .icon-svg {
+            width: 28px;
+            fill: #fff;
+        }
+    } 
+
     .hallo-img {
         width: 150px;
     }

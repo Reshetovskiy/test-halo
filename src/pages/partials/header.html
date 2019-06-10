@@ -13,6 +13,11 @@
 
 <header class="header">
     <div class="header-top">
+        <button class="toggle-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav class="header-navbar header-navbar--mobile">
             <ul class="header-list">
                 <li class="header-list__item"><a href="" class="header-list__link"> FINANCING</a></li>
@@ -22,11 +27,6 @@
                 <li class="header-list__item"><a href="" class="header-list__link">CONTACT</a></li>
             </ul>
         </nav>
-        <button class="toggle-button">
-            <span></span>
-            <span></span>
-            <span></span>    
-        </button>
         <div class="header-top-information">
             <div class="header-social">
                 <ul class="header-list">
@@ -42,11 +42,11 @@
         </div>
     </div>
     <div class="header-menu">
-        <div class="header-brand">
+        <a class="header-brand">
             <figure>
                 <img src="img/logo.png" alt="" class="header-brand__img">
             </figure>
-        </div>
+        </a>
         <nav class="header-navbar  header-list--white ">
             <ul class="header-list">
                 <li class="header-list__item"><a href="" class="header-list__link">ABOUT </a></li>
@@ -67,7 +67,10 @@
         <p class="header-information__subtitle">Resurfacing</p>
         <p class="header-information__text"> Improve Discoloration, texture, <br> fine lines and pores </p>
         <figure> <img class="hallo-img" src="img/halo.png" alt=""></figure>
-        <!-- @@include('mixins/svg-icon.html', {"name": "halo", "class": ""}) -->
+ 
+    </div>
+    <div class="play">
+        @@include('mixins/svg-icon.html', {"name": "PLAY", "class": ""})
     </div>
     <nav class="mobile-menu">
         <ul class="header-list">
