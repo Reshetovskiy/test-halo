@@ -3,13 +3,11 @@
   "description": "Gulp compiling",
   "main": "index.js",
   "authors": [
-    "Yuriy Klimovych <web.west5@gmail.com>"
+  
   ],
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.3.1",
-    "reset-css": "^2.2.1",
-    "svg4everybody": "jonathantneal/svg4everybody#^2.1.9"
+  
   },
   "ignore": [
     "**/.*",

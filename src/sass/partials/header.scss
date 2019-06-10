@@ -1,0 +1,133 @@
+.header {
+    background: url('../img/banner.png')  100%  100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.header-top {
+    padding: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    background: linear-gradient(180deg, rgba(0,0,0, .5) 0%, rgba(0,0,0,.35) 56%, rgba(255,255,255,0) 100%);
+}
+
+.header-top-information {
+    display: flex;
+    min-width: 55%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-list {
+    display: flex;
+    align-items: center;
+    &__item {
+        padding: 0 15px;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+    &__link {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1.32px;
+        color: #ffffff;
+        font-size: 11px;
+    }
+}
+
+.header-social {
+    .header-list {
+        display: flex;
+        &__item {
+            padding: 0 10px;
+        }
+    }
+
+    .icon-svg {
+        fill: #ffffff;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.header-phone {
+    color: #ffffff;
+    font-size: 26px;
+    letter-spacing: 3.12px;
+    padding-left: 200px;
+}
+
+.header-menu {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+}
+
+ .header-list--white {
+    .header-list {
+        color: #000;
+        &__link {
+            color: #000;
+            font-size: 14px;
+        }
+    }
+ }
+
+ .header-search {
+     display: flex;
+     align-items: center;
+     &__input {
+         border: 1px solid #000;
+         padding: 21px 0px 21px 35px;
+         &::placeholder {
+             color: #000;
+             letter-spacing: 6.4px;
+         }
+     }
+     &__button {
+         margin-left: 12px;
+        background: #000;
+        border: none;
+        padding: 17px;
+     }
+
+     .icon-svg {
+         width: 26px;
+         height: 20px;
+         fill: #ffffff;
+     }
+ }
+
+.header-information {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    padding: 137px 63px 48px 63px;
+    &__title {
+        font-size: 130px;
+        text-transform: uppercase;
+        letter-spacing: 52px;
+        font-weight: 200;
+        margin-bottom: 25px;
+    }
+    &__subtitle {
+        font-size: 60px;
+        letter-spacing: 24px;
+        margin-bottom: 20px;
+    }
+    &__text {
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 8px;
+        margin-bottom: 69px;
+    }
+}
+

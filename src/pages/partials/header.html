@@ -1,3 +1,87 @@
-<header>
-    Header
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" inline>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-top">
+        <nav class="header-navbar header-navbar--mobile">
+            <ul class="header-list">
+                <li class="header-list__item"><a href="" class="header-list__link"> FINANCING</a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">PATIENT FORMS  </a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">BLOG </a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">SPECIALS </a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">CONTACT</a></li>
+            </ul>
+        </nav>
+        <button class="toggle-button">
+            <span></span>
+            <span></span>
+            <span></span>    
+        </button>
+        <div class="header-top-information">
+            <div class="header-social">
+                <ul class="header-list">
+                    <li class="header-list__item"><a href="" class="header-list__link"> @@include('mixins/svg-icon.html', {"name": "facebook", "class": ""})</a></li>
+                    <li class="header-list__item"><a href="" class="header-list__link"> @@include('mixins/svg-icon.html', {"name": "twitter", "class": ""})</a></li>
+                    <li class="header-list__item"><a href="" class="header-list__link">@@include('mixins/svg-icon.html', {"name": "youtube", "class": ""}) </a></li>
+                    <li class="header-list__item"><a href="" class="header-list__link"> @@include('mixins/svg-icon.html', {"name": "message", "class": ""})</a></li>
+                </ul>
+            </div>
+            <div class="header-number">
+                <p class="header-phone"> 480.545.2832 </p>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu">
+        <div class="header-brand">
+            <figure>
+                <img src="img/logo.png" alt="" class="header-brand__img">
+            </figure>
+        </div>
+        <nav class="header-navbar  header-list--white ">
+            <ul class="header-list">
+                <li class="header-list__item"><a href="" class="header-list__link">ABOUT </a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">Face </a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">  Body</a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">Vitality </a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">CONDITIONS</a></li>
+                <li class="header-list__item"><a href="" class="header-list__link">GALLERY</a></li>
+            </ul>
+        </nav>
+        <div class="header-search">
+            <input type="text" placeholder="BOOK NOW" class="header-search__input">
+            <button class="header-search__button"> @@include('mixins/svg-icon.html', {"name": "search", "class": ""}) </button>
+        </div>
+    </div>
+    <div class="header-information">
+        <h1 class="header-information__title"> HALO </h1>
+        <p class="header-information__subtitle">Resurfacing</p>
+        <p class="header-information__text"> Improve Discoloration, texture, <br> fine lines and pores </p>
+        <figure> <img class="hallo-img" src="img/halo.png" alt=""></figure>
+        <!-- @@include('mixins/svg-icon.html', {"name": "halo", "class": ""}) -->
+    </div>
+    <nav class="mobile-menu">
+        <ul class="header-list">
+            <li class="header-list__item"><a href="" class="header-list__link"> FINANCING</a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">PATIENT FORMS  </a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">BLOG </a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">SPECIALS </a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">CONTACT</a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">ABOUT </a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">Face </a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">  Body</a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">Vitality </a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">CONDITIONS</a></li>
+            <li class="header-list__item"><a href="" class="header-list__link">GALLERY</a></li>
+        </ul>
+    </nav>
 </header>

@@ -1,0 +1,105 @@
+* { 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, figure, p, ul, label { 
+    margin: 0; 
+}
+input, button, textarea { 
+    outline: none; 
+}
+a { 
+    text-decoration: none; 
+    color: #ffffff;
+}
+ul { 
+    padding-left: 0; 
+}
+li { 
+    list-style: none; 
+}
+
+.link { 
+    text-decoration: none; 
+}
+.button { 
+    border: none; 
+    padding: 0; 
+}
+
+.mobile-menu  {
+    display: none;
+}
+
+.active {
+    transition: all .5s ease;
+     .mobile-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 250px;
+        width: 100%;
+        display: block;
+
+        .header-list {
+            background-color: rgba(255, 255, 255,1);
+            padding-top: 20px;
+            width: 100%;
+            justify-content: center;
+            &__item {
+                padding: 2px 0;
+                // &:last-child {
+                //     padding-left: 15px;
+                // }
+                // &:first-child {
+                //     padding-left: 15px;
+                // }       
+            }
+            &__link {
+                color: #000;
+            }
+        }
+    }
+    .toggle-button {
+        margin-top: 10px;
+        span {
+            background: #000;
+            position: relative;
+            z-index: 20;
+            &:first-child{
+                 display: none;
+            }
+            &:nth-child(2) {
+                margin: 0;
+                margin-bottom: -2px;
+                // display: none;
+                transform: rotate(45deg);
+            }
+            &:last-child {
+                margin: 0;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+.toggle-button {
+    display: none;
+    background: transparent;
+    border: 0;
+    z-index: 5;
+    span {
+        width: 30px;
+        height: 2px;
+        margin-bottom: 5px;
+        background: #ffffff;
+        display: block;
+    }
+}

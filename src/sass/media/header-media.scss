@@ -1,0 +1,228 @@
+@media #{$sr-min-960} {
+
+    .header-phone {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .header-brand__img {
+        width: 150px;
+    }
+
+    .header-list--white {
+
+        .header-list {
+            &__item {
+                padding: 0 10px;
+            }
+        }
+    }
+
+    .header-search {
+        &__input {
+            padding: 10px 0 10px 15px;
+        }
+        &__button {
+            padding: 7px;
+        }
+    }
+
+    .header-information {
+        padding: 60px 40px 25px 40px;
+        &__title {
+            font-size: 100px;
+            margin-bottom: 0;
+            letter-spacing: 23px;
+        }
+        &__subtitle {
+            font-size: 50px;
+            letter-spacing: 17px;
+        }
+        &__text {
+            margin-bottom: 40px;
+        }
+    }
+    
+    .header-top-information {
+        min-width: 40%;
+    }
+
+    .header-social {
+        &__item {
+            padding: 0 7px;
+        }
+    }
+
+    .hallo-img {
+        width: 180px;
+    }
+}
+
+@media #{$sr-min-768} {
+
+    .header-top {
+        display: block;
+    }
+
+    .header-navbar {
+        width: 100%;
+    }
+
+    .header-top-information {
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+
+    .header-phone {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .header-list--white {
+
+        .header-list {
+            &__item {
+                padding: 0 10px;
+            }
+            &__link {
+                font-size: 11px;
+            }
+        }
+    }
+
+    .header-brand__img {
+        width: 100px;
+    }
+
+    .header-search {
+        &__input {
+            padding: 10px 0 10px 15px;
+            width: 150px;
+            &::placeholder {
+                color: #000;
+                letter-spacing: 3.4px;
+            }
+        }
+        &__button {
+            margin-left: 5px;
+            padding: 7px;
+        }
+    }
+
+    .header-information {
+        padding: 30px 20px 15px 20px;
+        &__title {
+            font-size: 80px;
+            margin-bottom: 0;
+            letter-spacing: 23px;
+        }
+        &__subtitle {
+            font-size: 40px;
+            letter-spacing: 17px;
+        }
+        &__text {
+            margin-bottom: 40px;
+        }
+    }
+    .hallo-img {
+        width: 150px;
+    }
+}
+
+@media #{$sr-max-767} {
+    .header-top {
+        display: block;
+        position: relative;
+        padding: 10px 5px;
+    }
+
+    .header-menu {
+        padding: 5px 8px;
+    }
+
+    .header-navbar--mobile {
+        display: none;
+    }
+
+    .header-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .header-social {
+
+        .header-list { 
+            display: flex;
+            position: static;
+            flex-direction: row;
+            align-items: center;
+            &__item {
+                padding: 0 5px;
+            }
+        }
+    }
+
+    .toggle-button { 
+        display: block;
+    }
+    
+    .header-top-information {
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+
+    .header-phone {
+        padding: 10px;
+        font-size: 14px;
+    }
+ 
+    .header-list--white {
+        display: none;
+    }
+
+    .header-brand__img {
+        width: 100px;
+    }
+
+    .header-search {
+        order: 1;
+        &__input {
+            padding: 10px 0 10px 15px;
+            width: 130px;
+            &::placeholder {
+                color: #000;
+                letter-spacing: 3.4px;
+            }
+        }
+        &__button {
+            margin-left: 5px;
+            padding: 7px;
+        }
+    }
+
+    .header-information {
+        padding: 30px 10px 10px 10px;
+        &__title {
+            font-size: 40px;
+            margin-bottom: 0;
+            letter-spacing: 23px;
+        }
+        &__subtitle {
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 17px;
+        }
+        &__text {
+            margin-bottom: 40px;
+        }
+    }
+    .hallo-img {
+        width: 150px;
+    }
+}
+
+
+
